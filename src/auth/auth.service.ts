@@ -18,7 +18,7 @@ export class AuthService {
       throw new BadRequestException('Contraseña incorrecta');
     }
     await this.resetAttempts(user.email);
-    return { message: 'login exitoso' };
+    return { message: 'login exitoso', logged: true };
   }
   checkLock(lockedUntil: Date) {
     if (lockedUntil && new Date() < new Date(lockedUntil)) {
